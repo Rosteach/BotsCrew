@@ -3,31 +3,29 @@ package com.app.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.app.entity.Book;
 
 @Repository
-public class BookStoreDAOImpl implements BooksStoreDAO{
-	
-	private EntityManager em = Persistence.createEntityManagerFactory("derby").createEntityManager();
+public class BookStoreServiceImpl implements BooksStoreService{
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("h2"); 
+	EntityManager em=emf.createEntityManager();
 	
 	@Override
 	public void add(Book book) {
 		em.getTransaction().begin();
-		
 		if(book.getId()==0){
 			em.persist(book);
 		}
 		else{
 			em.merge(book);
 		}
-		
 		em.getTransaction().commit();
-		em.getEntityManagerFactory().close();
-		em.close();
 	}
 
 	@Override
@@ -41,11 +39,12 @@ public class BookStoreDAOImpl implements BooksStoreDAO{
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public List<Book> all() {
-		// TODO Auto-generated method stub
-		return null;
+		em.getTransaction().begin();
+		@SuppressWarnings("unchecked")
+		List<Book> books = (List<Book>)em.createNativeQuery("select * from book order by name", Book.class).getResultList(); 
+		em.getTransaction().commit();
+		return books;
 	}
-
 }

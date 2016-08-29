@@ -17,7 +17,7 @@
 </head>
 <body ng-controller="myCtrl">
 
-<pre>ChatBot (description: to send message please press Send Message)</pre>
+<pre>ChatBot (description: to send message please press Send)</pre>
 	<div ng-repeat="message in messages">
 		<div class="message">
 			<p><b>{{message.role}}</b> {{message.message}}</p>
@@ -38,7 +38,7 @@
 			    	<input ng-model="userRequest" type="text" class="form-control" placeholder="Enter message...">
 			  </div>
 			</form>
-			<button ng-click="sendMessage(userRequest)" type="button" class="btn btn-info navbar-btn">Send</button>
+			<button ng-click="sendMessage()" type="button" class="btn btn-info navbar-btn">Send</button>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>

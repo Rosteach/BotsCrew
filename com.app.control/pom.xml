@@ -27,6 +27,7 @@
 		<spring-framework.data.version>1.8.0.RELEASE</spring-framework.data.version>
 		
 		<!-- Hibernate / JPA -->
+		<dbh2.version>1.4.187</dbh2.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
 
 		<!-- Logging -->
@@ -111,6 +112,13 @@
             <version>4.3.7.Final</version>
         </dependency>
         
+        <dependency>
+		    <groupId>org.hibernate.javax.persistence</groupId>
+		    <artifactId>hibernate-jpa-2.1-api</artifactId>
+		    <version>1.0.0.Final</version>
+		</dependency>
+        
+        
         <!-- jsr303 validation -->
         <dependency>
             <groupId>javax.validation</groupId>
@@ -130,6 +138,13 @@
 		    <version>10.12.1.1</version>
 		</dependency>
 		
+		<!-- H2 DB -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${dbh2.version}</version>
+		</dependency>
+			
 		<!-- JDBC pool -->
 		<dependency>
 			<groupId>commons-pool</groupId>

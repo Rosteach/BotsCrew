@@ -1,11 +1,11 @@
 package com.app.chatbot.util;
 
-public class Response {
+public class ResponseUtil {
 	private String role;
 	private String message;
 	
-	public Response(){}
-	public Response(String role, String message){
+	public ResponseUtil(){}
+	public ResponseUtil(String role, String message){
 		this.role=role;
 		this.message=message;
 	}
