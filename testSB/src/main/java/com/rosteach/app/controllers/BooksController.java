@@ -37,13 +37,12 @@ public class BooksController {
 	}
 	
 	@RequestMapping(value="/",method=RequestMethod.POST,consumes={"application/json"},produces={"application/json"})
-	public ResponseEntity<Author> addBook(@RequestBody Author author){
-		System.out.println("--------"+author);
+	public ResponseEntity<Book> addBook(@RequestBody Book book){
+		System.out.println("--------"+book);
 		//authorRepository.save(book.getAuthor());
 		//book.setAuthor(new Author("Jim","Smith"));
-		//bookService.add(book);
-		authorService.add(author);
-		return new ResponseEntity<Author>(author,HttpStatus.CREATED);
+		bookService.add(book);
+		return new ResponseEntity<Book>(book,HttpStatus.CREATED);
 	}
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT,consumes={"application/json"},produces={"application/json"})
 	public Book updateBook(@RequestBody Book book, @PathVariable Long id){
