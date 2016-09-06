@@ -8,23 +8,14 @@ import com.rosteach.app.utils.RestTemplateURLUtils;
 
 @Service
 public class GoogleAPIServiceImpl implements GoogleAPIService{	
-	
-
-	
 	@Autowired
 	private RestTemplate restTemplate;
 
 	@Override
-	public String getLatitude() {
-		String json = restTemplate.getForObject(RestTemplateURLUtils.getRestEndPoint("json", "Kiev", "AIzaSyBu5crncAYrbR9LTyEtLFtzRB2viEIgMdA"),String.class);
+	public String getGeocodeResponse() {
+		String json = restTemplate.getForObject(RestTemplateURLUtils.getRestEndPoint("json", "Bali", "AIzaSyBu5crncAYrbR9LTyEtLFtzRB2viEIgMdA"),String.class);
 		System.out.println(json);
 		return json;
-	}
-
-	@Override
-	public String getLongtitude() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

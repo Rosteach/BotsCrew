@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,28 +11,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name="author")
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Author implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "author_fname")
 	private String fname;
-	
-	@Column(name = "author_lname")
 	private String lname;
 	
-	@OneToMany(mappedBy = "author", cascade=CascadeType.ALL,
-			orphanRemoval=true)
-	private Set<Book> books;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "author")
+	private Set<Book> books; 
 	
 	public Author(){}
-
+	
+	public Author(String fname,String lname){
+		this.fname=fname;
+		this.lname=lname;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -57,7 +60,8 @@ public class Author implements Serializable{
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-
+	
+	
 	public Set<Book> getBooks() {
 		return books;
 	}
