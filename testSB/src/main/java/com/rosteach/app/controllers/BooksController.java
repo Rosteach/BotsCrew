@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rosteach.app.entity.Author;
 import com.rosteach.app.entity.Book;
-import com.rosteach.app.service.AuthorService;
 import com.rosteach.app.service.BookService;
 
 @RestController
@@ -21,9 +19,6 @@ import com.rosteach.app.service.BookService;
 public class BooksController {
 	@Autowired
 	private BookService bookService;
-	
-	@Autowired
-	private AuthorService authorService;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET,produces={"application/json"})
 	public ResponseEntity<List<Book>> getAll(){

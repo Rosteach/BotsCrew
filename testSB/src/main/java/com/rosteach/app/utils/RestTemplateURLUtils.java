@@ -6,5 +6,4 @@ public class RestTemplateURLUtils {
 	public static String getRestEndPoint(String dataFormat, String locationName, String apiKey){
 		return GOOGLE_API_GEOCODE+dataFormat+"?address="+locationName+"&key="+apiKey;
 	}
-
 }

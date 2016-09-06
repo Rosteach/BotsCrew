@@ -25,6 +25,7 @@ public class Book implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
 	private String name;
+	
 	@ManyToOne
 	@JoinColumn(name="author_id")
 	private Author author;

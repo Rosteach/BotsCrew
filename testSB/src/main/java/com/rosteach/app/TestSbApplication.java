@@ -17,7 +17,6 @@ public class TestSbApplication {
 		SpringApplication.run(TestSbApplication.class, args);
 		logger.info("in main Thread of Spring Boot");
 	}
-	
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
