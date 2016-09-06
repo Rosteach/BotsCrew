@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rosteach.app.entity.Book;
-import com.rosteach.app.repository.AuthorRepository;
 import com.rosteach.app.repository.BookRepository;
 
 @RestController
@@ -19,11 +18,8 @@ public class BooksController {
 	@Autowired
 	private BookRepository bookRepository;
 	
-	@Autowired
-	private AuthorRepository authorRepository;
-	
 	@RequestMapping(value="/",method=RequestMethod.GET,produces={"application/json"})
-	public ResponseEntity<List<Book>> greeting(){
+	public ResponseEntity<List<Book>> getAll(){
 		return new ResponseEntity<List<Book>>(bookRepository.findAll(),HttpStatus.OK);
 	}
 }
