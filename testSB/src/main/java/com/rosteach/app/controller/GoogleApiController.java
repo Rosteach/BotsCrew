@@ -1,4 +1,4 @@
-package com.rosteach.app.controllers;
+package com.rosteach.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rosteach.app.entity.geocode.GeocodeInformation;
-import com.rosteach.app.service.GoogleAPIService;
+import com.rosteach.app.entity.geocode.GeoLocation;
+import com.rosteach.app.service.google.GoogleAPIService;
 
 @RestController
 @RequestMapping("/google")
@@ -17,9 +17,8 @@ public class GoogleApiController {
 	private GoogleAPIService googleAPIService;
 	
 	@RequestMapping(value="/",method=RequestMethod.GET,produces={"application/json"})
-	public ResponseEntity<GeocodeInformation> getResponse(){
-		System.out.println(googleAPIService.getGeocodeInformation("json", "Bali"));
-		return new ResponseEntity<GeocodeInformation>(googleAPIService.getGeocodeInformation("json", "Bali"),HttpStatus.OK);
+	public ResponseEntity<GeoLocation> getResponse(){
+		return new ResponseEntity<GeoLocation>(googleAPIService.getGeocodeInformation("json", "Bali"),HttpStatus.OK);
 	} 
 	
 }

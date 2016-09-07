@@ -1,4 +1,4 @@
-package com.rosteach.app.service;
+package com.rosteach.app.service.book;
 
 import java.util.List;
 

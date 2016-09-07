@@ -1,4 +1,4 @@
-package com.rosteach.app.service;
+package com.rosteach.app.service.author;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.rosteach.app.controllers;
+package com.rosteach.app.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

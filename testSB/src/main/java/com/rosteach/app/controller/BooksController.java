@@ -1,4 +1,4 @@
-package com.rosteach.app.controllers;
+package com.rosteach.app.controller;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rosteach.app.entity.Book;
-import com.rosteach.app.service.BookService;
+import com.rosteach.app.service.book.BookService;
 
 @RestController
 @RequestMapping("/book")
