@@ -21,7 +21,7 @@ public class GoogleAPIServiceImpl implements GoogleAPIService{
 		/**
 		 * get geocodeResult information as String value
 		 */
-		String geoCodeResult = restTemplate.getForObject(RestTemplateURLUtil.getGeocodeApiURL(location, apiKey),String.class);
+		String geoCodeResult = restTemplate.getForObject(RestTemplateURLUtil.getGeocodeApiURL(mediaType,location, apiKey),String.class);
 		/**
 		 * get JSONObject location from parent geometry in results array
 		 */

@@ -1,12 +1,14 @@
 package com.rosteach.app.entity.geocode;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+//import com.rosteach.app.entity.geocode.pojo.GeoCode;
 import com.rosteach.app.manager.ObjectMapperManager;
-import com.rosteach.app.util.GeocodeResponse;
+//import com.rosteach.app.util.GeocodeResponse;
 
 public class GeoLocation implements Serializable{
 	
@@ -32,7 +34,8 @@ public class GeoLocation implements Serializable{
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
-	public static GeoLocation getGeoLocation(String mediaType,String locationName) throws JsonParseException, JsonMappingException, IOException{
-		return ObjectMapperManager.getObjectMapper(mediaType).readValue(new GeocodeResponse().getLocationJson(locationName), GeoLocation.class) ;
+	public GeoLocation getGeoLocation(String mediaType,String locationName) throws JsonParseException, JsonMappingException, IOException{
+		InputStream inputStream = this.getClass().getResourceAsStream("");
+		return ObjectMapperManager.getObjectMapper(mediaType).readValue(inputStream, GeoLocation.class) ;
 	}
 }
