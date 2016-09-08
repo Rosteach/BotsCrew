@@ -1,17 +1,15 @@
-package com.rosteach.app.entity.geocode.pojo;
+package com.rosteach.app.entity.geocoder.pojo;
 
-import java.util.List;
-
-public class GeoCode {
-    private List<Results> results;
+public class GeoCoder {
+    private Result[] results;
 
     private String status;
 
-    public List<Results> getResults(){
+    public Result[] getResults(){
         return results;
     }
 
-    public void setResults (List<Results> results)
+    public void setResults (Result[] results)
     {
         this.results = results;
     }
@@ -23,7 +21,7 @@ public class GeoCode {
     {
         this.status = status;
     }	
-    	public static class Results{
+    	public static class Result{
 	        private String place_id;
 	
 	        private Address_components[] address_components;

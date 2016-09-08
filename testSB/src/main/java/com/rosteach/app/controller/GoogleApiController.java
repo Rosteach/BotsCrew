@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rosteach.app.entity.geocode.GeoLocation;
+import com.rosteach.app.entity.geocoder.GeoLocation;
 import com.rosteach.app.service.google.GoogleAPIService;
 
 @RestController

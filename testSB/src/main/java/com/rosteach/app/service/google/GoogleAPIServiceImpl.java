@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.rosteach.app.entity.geocode.GeoLocation;
+import com.rosteach.app.entity.geocoder.GeoLocation;
 import com.rosteach.app.util.RestTemplateURLUtil;
 import org.json.JSONObject;
 @Service
