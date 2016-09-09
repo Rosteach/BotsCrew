@@ -15,10 +15,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="book")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id

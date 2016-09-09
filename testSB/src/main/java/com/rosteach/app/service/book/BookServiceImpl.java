@@ -18,8 +18,6 @@ public class BookServiceImpl implements BookService{
 	@Autowired
 	private BookRepository bookRepository;
 	
-	//@Autowired
-	//private AuthorRepository authorRepository;
 	@Override
 	public List<Book> findAll() {
 		return bookRepository.findAll();
@@ -36,15 +34,8 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public Book update(Book book,Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		bookRepository.delete(id);
 	}
 
 }

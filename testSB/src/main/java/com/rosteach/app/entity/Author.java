@@ -8,14 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-//import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="author")
-//@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true) 
 public class Author implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -27,8 +28,11 @@ public class Author implements Serializable{
 	private String fname;
 	private String lname;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "author")
+	@OneToMany(mappedBy="author",cascade=CascadeType.ALL)
 	private Set<Book> books; 
+	
+	@ManyToMany
+	private Set<Publisher> publishers;
 	
 	public Author(){}
 	
@@ -68,6 +72,14 @@ public class Author implements Serializable{
 
 	public void setBooks(Set<Book> books) {
 		this.books = books;
+	}
+
+	public Set<Publisher> getPublishers() {
+		return publishers;
+	}
+
+	public void setPublishers(Set<Publisher> publishers) {
+		this.publishers = publishers;
 	}
 	
 }

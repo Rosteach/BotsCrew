@@ -33,15 +33,13 @@ public class BooksController {
 	
 	@RequestMapping(value="/",method=RequestMethod.POST,consumes={"application/json"},produces={"application/json"})
 	public ResponseEntity<Book> addBook(@RequestBody Book book){
-		System.out.println("--------"+book);
-		//authorRepository.save(book.getAuthor());
-		//book.setAuthor(new Author("Jim","Smith"));
 		bookService.add(book);
 		return new ResponseEntity<Book>(book,HttpStatus.CREATED);
 	}
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT,consumes={"application/json"},produces={"application/json"})
 	public Book updateBook(@RequestBody Book book, @PathVariable Long id){
-		return null;
+		bookService.add(book);
+		return book;
 	}
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE,consumes={"application/json"},produces={"application/json"})
 	public void deleteBook(@PathVariable Long id){
