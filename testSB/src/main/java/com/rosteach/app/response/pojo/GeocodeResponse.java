@@ -47,6 +47,7 @@ public class GeocodeResponse {
 	public static String getLocationData(String geocode,String mediaType){
 		String locationData=null;
 		if(mediaType.equalsIgnoreCase("xml")){
+
 			JSONObject jobj = XML.toJSONObject(geocode);
 			
 			JSONObject geometry = jobj.getJSONObject("GeocodeResponse").getJSONObject("result").getJSONObject("geometry");
